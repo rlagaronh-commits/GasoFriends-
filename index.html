@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gasómetro Compartido</title>
+  <meta name="theme-color" content="#111827" />
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#121a31; --soft:#1a2444; --text:#e5e7eb; --muted:#9ca3af;
+      --accent:#22c55e; --accent2:#60a5fa; --warn:#f59e0b; --danger:#ef4444; --border:#263255;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#09101d,#10182d 45%,#0b1020); color:var(--text);
+      min-height:100vh;
+    }
+    .wrap{max-width:920px; margin:0 auto; padding:20px}
+    .hero{display:flex; flex-wrap:wrap; gap:16px; align-items:flex-start; justify-content:space-between; margin-bottom:18px}
+    h1{font-size:clamp(1.8rem,4vw,2.6rem); margin:.1rem 0 .4rem}
+    .sub{color:var(--muted); max-width:700px; line-height:1.5}
+    .badge{display:inline-flex; align-items:center; gap:8px; background:#0f172a; border:1px solid var(--border); padding:8px 12px; border-radius:999px; color:#cbd5e1; font-size:.92rem}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .card{grid-column:span 12; background:rgba(18,26,49,.9); border:1px solid var(--border); border-radius:20px; padding:18px; box-shadow:0 10px 30px rgba(0,0,0,.2)}
+    @media(min-width:900px){ .span-7{grid-column:span 7}.span-5{grid-column:span 5}.span-4{grid-column:span 4}.span-8{grid-column:span 8}}
+    .metrics{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    @media(min-width:680px){ .metrics{grid-template-columns:repeat(4,1fr);} }
+    .metric{background:var(--soft); border:1px solid var(--border); border-radius:18px; padding:14px}
+    .metric .label{color:var(--muted); font-size:.85rem; margin-bottom:6px}
+    .metric .value{font-size:clamp(1.2rem,3vw,2rem); font-weight:700}
+    label{display:block; font-size:.92rem; color:#dbe4f0; margin-bottom:8px}
+    input, select{
+      width:100%; padding:13px 14px; border-radius:14px; border:1px solid var(--border);
+      background:#0d152b; color:var(--text); outline:none; font-size:1rem;
+    }
+    input:focus, select:focus{border-color:#4f46e5; box-shadow:0 0 0 3px rgba(99,102,241,.18)}
+    .row{display:grid; grid-template-columns:repeat(1,1fr); gap:12px}
+    @media(min-width:700px){ .row-2{grid-template-columns:repeat(2,1fr)} .row-3{grid-template-columns:repeat(3,1fr)} }
+    .btns{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    button{
+      border:0; border-radius:14px; padding:13px 16px; font-size:1rem; font-weight:700; cursor:pointer;
+      color:#08111f; background:var(--accent);
+    }
+    button.secondary{background:#dbeafe;color:#0b2545}
+    button.ghost{background:#0d152b;color:#d1d5db;border:1px solid var(--border)}
+    button.warn{background:#fef3c7;color:#78350f}
+    button.danger{background:#fee2e2;color:#7f1d1d}
+    .status{display:flex; align-items:center; gap:10px; margin-top:14px; color:#dbeafe; flex-wrap:wrap}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--warn); box-shadow:0 0 0 6px rgba(245,158,11,.12)}
+    .dot.ok{background:var(--accent); box-shadow:0 0 0 6px rgba(34,197,94,.12)}
+    .dot.err{background:var(--danger); box-shadow:0 0 0 6px rgba(239,68,68,.12)}
+    .hint,.small{color:var(--muted); font-size:.9rem; line-height:1.45}
+    .progress{height:14px; background:#0d152b; border:1px solid var(--border); border-radius:999px; overflow:hidden; margin:14px 0 8px}
+    .progress > div{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width .35s ease}
+    .pill{display:inline-block; background:#0d152b; border:1px solid var(--border); color:#cbd5e1; border-radius:999px; padding:8px 12px; font-size:.9rem; margin:4px 8px 0 0}
+    .footer{margin-top:18px; color:var(--muted); font-size:.88rem}
+    .mono{font-variant-numeric:tabular-nums}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="badge">🚗 Gasómetro compartido · GPS en tiempo real</div>
+        <h1>Cuánto le debes de gasolina, en directo</h1>
+        <div class="sub">
+          Esta app usa la ubicación del móvil para medir el trayecto mientras vais en coche y te muestra en tiempo real cuánto dinero te toca pagar de gasolina.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <section class="card span-7">
+        <h2>Trayecto</h2>
+        <div class="row row-2">
+          <div>
+            <label for="origen">Origen</label>
+            <input id="origen" placeholder="Ej. La Garena" value="La Garena" />
+          </div>
+          <div>
+            <label for="destino">Destino</label>
+            <input id="destino" placeholder="Ej. Azuqueca de Henares" value="Azuqueca de Henares" />
+          </div>
+        </div>
+
+        <div class="row row-3" style="margin-top:12px">
+          <div>
+            <label for="distanciaObjetivo">Distancia prevista (km)</label>
+            <input id="distanciaObjetivo" type="number" min="0" step="0.1" value="17.9" />
+          </div>
+          <div>
+            <label for="consumo">Consumo del coche (L/100 km)</label>
+            <input id="consumo" type="number" min="0" step="0.1" value="6.5" />
+          </div>
+          <div>
+            <label for="precio">Precio gasolina (€ / L)</label>
+            <input id="precio" type="number" min="0" step="0.001" value="1.60" />
+          </div>
+        </div>
+
+        <div class="row row-3" style="margin-top:12px">
+          <div>
+            <label for="personas">Personas en el coche</label>
+            <input id="personas" type="number" min="1" step="1" value="2" />
+          </div>
+          <div>
+            <label for="modo">Modo de cálculo</label>
+            <select id="modo">
+              <option value="repartido">Repartido entre ocupantes</option>
+              <option value="yoPagoTodo">Yo pago todo el combustible</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtro">Filtro GPS</label>
+            <select id="filtro">
+              <option value="normal">Normal</option>
+              <option value="estricto">Estricto (menos saltos)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="btns">
+          <button id="startBtn">Iniciar trayecto</button>
+          <button id="pauseBtn" class="secondary">Pausar</button>
+          <button id="resumeBtn" class="warn">Reanudar</button>
+          <button id="resetBtn" class="danger">Reiniciar</button>
+          <button id="simulateBtn" class="ghost">Simular +1 km</button>
+        </div>
+
+        <div class="status"><span id="statusDot" class="dot"></span><span id="statusText">Esperando a que empieces.</span></div>
+        <div class="hint" style="margin-top:10px">
+          En iPhone, ábrela desde Safari y acepta permiso de ubicación. Lo ideal es tener la pantalla encendida o volver a la app de vez en cuando para que el GPS siga fino.
+        </div>
+      </section>
+
+      <section class="card span-5">
+        <h2>Resumen en directo</h2>
+        <div class="metrics">
+          <div class="metric"><div class="label">Tu importe</div><div id="euros" class="value mono">0,00 €</div></div>
+          <div class="metric"><div class="label">Km recorridos</div><div id="km" class="value mono">0,00</div></div>
+          <div class="metric"><div class="label">Combustible estimado</div><div id="litros" class="value mono">0,00 L</div></div>
+          <div class="metric"><div class="label">Coste total</div><div id="total" class="value mono">0,00 €</div></div>
+        </div>
+
+        <div class="progress"><div id="progressBar"></div></div>
+        <div class="small"><span id="progressText">0% del trayecto previsto</span></div>
+
+        <div style="margin-top:16px">
+          <span class="pill" id="rutaPill">Ruta: La Garena → Azuqueca de Henares</span>
+          <span class="pill" id="precisionPill">Precisión GPS: —</span>
+          <span class="pill" id="velocidadPill">Velocidad: —</span>
+        </div>
+
+        <div class="footer" id="detalleFormula">
+          Fórmula: distancia × consumo × precio. Luego se reparte entre ocupantes si eliges esa opción.
+        </div>
+      </section>
+
+      <section class="card span-12">
+        <h2>Cómo funciona</h2>
+        <div class="small">
+          La app suma la distancia real recorrida con GPS y la convierte a dinero con esta fórmula:<br><br>
+          <strong>Coste total</strong> = <em>km recorridos × (consumo / 100) × precio por litro</em>.<br>
+          <strong>Tu parte</strong> = coste total / personas en el coche, salvo que elijas “Yo pago todo el combustible”.
+          <br><br>
+          Para tu ejemplo, he dejado cargado un trayecto demo de <strong>La Garena → Azuqueca de Henares</strong> con una distancia por carretera de alrededor de <strong>17,9 km</strong>, como referencia pública del recorrido. Puedes cambiarlo a mano cuando quieras. 
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const state = {
+      watching:false,
+      paused:false,
+      watchId:null,
+      totalKm:0,
+      lastPos:null,
+      startedAt:null,
+      maxAccuracy:80,
+      minMoveMeters:18,
+    };
+
+    const els = {
+      origen: $('origen'), destino: $('destino'), distanciaObjetivo: $('distanciaObjetivo'), consumo: $('consumo'),
+      precio: $('precio'), personas: $('personas'), modo: $('modo'), filtro: $('filtro'),
+      euros: $('euros'), km: $('km'), litros: $('litros'), total: $('total'), progressBar: $('progressBar'),
+      progressText: $('progressText'), rutaPill: $('rutaPill'), precisionPill: $('precisionPill'), velocidadPill: $('velocidadPill'),
+      statusDot: $('statusDot'), statusText: $('statusText'), detalleFormula: $('detalleFormula')
+    };
+
+    function saveSettings(){
+      const data = {
+        origen: els.origen.value, destino: els.destino.value, distanciaObjetivo: els.distanciaObjetivo.value,
+        consumo: els.consumo.value, precio: els.precio.value, personas: els.personas.value,
+        modo: els.modo.value, filtro: els.filtro.value
+      };
+      localStorage.setItem('gasometro-settings', JSON.stringify(data));
+    }
+
+    function loadSettings(){
+      const raw = localStorage.getItem('gasometro-settings');
+      if(!raw) return;
+      try{
+        const data = JSON.parse(raw);
+        Object.keys(data).forEach(k => { if(els[k]) els[k].value = data[k]; });
+      }catch{}
+    }
+
+    function setFilter(){
+      if(els.filtro.value === 'estricto'){
+        state.maxAccuracy = 35;
+        state.minMoveMeters = 28;
+      } else {
+        state.maxAccuracy = 80;
+        state.minMoveMeters = 18;
+      }
+    }
+
+    function fmtMoney(v){ return new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(v || 0); }
+    function fmtNum(v, digits=2){ return new Intl.NumberFormat('es-ES',{minimumFractionDigits:digits, maximumFractionDigits:digits}).format(v || 0); }
+
+    function haversineKm(lat1, lon1, lat2, lon2){
+      const R = 6371;
+      const dLat = (lat2-lat1) * Math.PI/180;
+      const dLon = (lon2-lon1) * Math.PI/180;
+      const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    }
+
+    function compute(){
+      const consumo = parseFloat(els.consumo.value) || 0;
+      const precio = parseFloat(els.precio.value) || 0;
+      const personas = Math.max(1, parseInt(els.personas.value) || 1);
+      const litros = state.totalKm * (consumo / 100);
+      const total = litros * precio;
+      const tuParte = els.modo.value === 'yoPagoTodo' ? total : total / personas;
+      const objetivo = parseFloat(els.distanciaObjetivo.value) || 0;
+      const progress = objetivo > 0 ? Math.min(100, (state.totalKm / objetivo) * 100) : 0;
+
+      els.km.textContent = fmtNum(state.totalKm);
+      els.litros.textContent = `${fmtNum(litros)} L`;
+      els.total.textContent = fmtMoney(total);
+      els.euros.textContent = fmtMoney(tuParte);
+      els.progressBar.style.width = progress + '%';
+      els.progressText.textContent = objetivo > 0
+        ? `${fmtNum(progress, 1)}% del trayecto previsto`
+        : 'Sin distancia prevista';
+      els.rutaPill.textContent = `Ruta: ${els.origen.value || 'Origen'} → ${els.destino.value || 'Destino'}`;
+      els.detalleFormula.innerHTML = `Con <strong>${fmtNum(consumo,1)} L/100 km</strong> y <strong>${fmtMoney(precio)}/L</strong>, el coste sube a medida que avanzáis. ${els.modo.value === 'yoPagoTodo' ? 'Ahora mismo estás pagando el combustible completo.' : `Se está dividiendo entre <strong>${personas}</strong> personas.`}`;
+      saveSettings();
+    }
+
+    function setStatus(text, type='idle'){
+      els.statusText.textContent = text;
+      els.statusDot.className = 'dot' + (type === 'ok' ? ' ok' : type === 'err' ? ' err' : '');
+    }
+
+    function onPosition(pos){
+      if(state.paused) return;
+      const { latitude, longitude, accuracy, speed } = pos.coords;
+      els.precisionPill.textContent = `Precisión GPS: ${accuracy ? Math.round(accuracy) + ' m' : '—'}`;
+      els.velocidadPill.textContent = `Velocidad: ${speed && speed > 0 ? Math.round(speed * 3.6) + ' km/h' : '—'}`;
+
+      if(accuracy && accuracy > state.maxAccuracy){
+        setStatus(`GPS activo, pero con poca precisión (${Math.round(accuracy)} m).`, 'idle');
+        return;
+      }
+
+      if(state.lastPos){
+        const dKm = haversineKm(state.lastPos.latitude, state.lastPos.longitude, latitude, longitude);
+        const dMeters = dKm * 1000;
+        if(dMeters >= state.minMoveMeters && dMeters < 2000){
+          state.totalKm += dKm;
+          compute();
+        }
+      }
+
+      state.lastPos = { latitude, longitude };
+      setStatus('Trayecto en marcha. Midiendo distancia real.', 'ok');
+    }
+
+    function onError(err){
+      let msg = 'No se pudo acceder al GPS.';
+      if(err && err.code === 1) msg = 'Has denegado el permiso de ubicación.';
+      if(err && err.code === 2) msg = 'Ubicación no disponible ahora mismo.';
+      if(err && err.code === 3) msg = 'El GPS tardó demasiado en responder.';
+      setStatus(msg, 'err');
+    }
+
+    function startTracking(){
+      setFilter();
+      saveSettings();
+      if(!navigator.geolocation){
+        setStatus('Tu navegador no soporta geolocalización.', 'err');
+        return;
+      }
+      stopTracking(false);
+      state.watching = true;
+      state.paused = false;
+      state.lastPos = null;
+      state.startedAt = Date.now();
+      state.watchId = navigator.geolocation.watchPosition(onPosition, onError, {
+        enableHighAccuracy: true,
+        maximumAge: 1000,
+        timeout: 15000
+      });
+      setStatus('Pidiendo permiso de ubicación y arrancando GPS...', 'idle');
+    }
+
+    function stopTracking(clearDistance=false){
+      if(state.watchId != null && navigator.geolocation){
+        navigator.geolocation.clearWatch(state.watchId);
+      }
+      state.watchId = null;
+      state.watching = false;
+      state.paused = false;
+      state.lastPos = null;
+      if(clearDistance){
+        state.totalKm = 0;
+        compute();
+      }
+    }
+
+    $('startBtn').addEventListener('click', startTracking);
+    $('pauseBtn').addEventListener('click', () => {
+      if(!state.watching) return;
+      state.paused = true;
+      setStatus('Trayecto pausado.', 'idle');
+    });
+    $('resumeBtn').addEventListener('click', () => {
+      if(!state.watching) return;
+      state.paused = false;
+      setStatus('Trayecto reanudado.', 'ok');
+    });
+    $('resetBtn').addEventListener('click', () => {
+      stopTracking(true);
+      setStatus('Trayecto reiniciado.', 'idle');
+      els.precisionPill.textContent = 'Precisión GPS: —';
+      els.velocidadPill.textContent = 'Velocidad: —';
+    });
+    $('simulateBtn').addEventListener('click', () => {
+      state.totalKm += 1;
+      compute();
+      setStatus('Simulación: se añadió 1 km.', 'idle');
+    });
+
+    ['origen','destino','distanciaObjetivo','consumo','precio','personas','modo','filtro'].forEach(id => {
+      $(id).addEventListener('input', compute);
+      $(id).addEventListener('change', compute);
+    });
+
+    loadSettings();
+    compute();
+  </script>
+</body>
+</html>
