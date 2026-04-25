@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>GasoFriends v2.1</title>
+  <title>GasoFriends v2.1.1</title>
   <meta name="theme-color" content="#0f6fff" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -1244,13 +1244,20 @@
     body.app-v209 .onboarding.show{opacity:1 !important;visibility:visible !important;pointer-events:auto !important;}
 
   
-    /* GasoFriends v2.1 · apertura iPhone + perfiles inteligentes + historial premium */
+    /* GasoFriends v2.1.1 · apertura iPhone + perfiles inteligentes + historial premium */
     body.splash-lock{overflow:hidden;touch-action:none}
     .app-splash{position:fixed;inset:0;z-index:2147483600;display:grid;place-items:center;background:radial-gradient(circle at 50% 18%,rgba(10,132,255,.18),transparent 36%),linear-gradient(180deg,var(--bg-soft),var(--bg));transition:opacity .56s var(--ease-smooth),filter .56s var(--ease-smooth),visibility .56s var(--ease-smooth);will-change:opacity,filter}
     .app-splash.hide{opacity:0;filter:blur(16px);visibility:hidden;pointer-events:none}.splash-aura{position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(10,132,255,.30),transparent 64%);filter:blur(22px);animation:splashAura 1.55s var(--ease-smooth) both}.splash-card{position:relative;display:grid;place-items:center;gap:10px;transform:translateY(8px) scale(.96);opacity:0;animation:splashCardIn 1.35s cubic-bezier(.16,.84,.22,1) .08s both}.splash-logo{width:92px;height:92px;border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.06)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%238fd0ff'/%3E%3Cstop offset='1' stop-color='%230a84ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M34 14c-7 9-16 15-16 25 0 8 6.6 14 14 14s14-6 14-14c0-7-4.5-12.8-12-25z' fill='url(%23g)'/%3E%3Ccircle cx='42' cy='22' r='5.5' fill='white' fill-opacity='.94'/%3E%3C/svg%3E");background-position:center;background-repeat:no-repeat;background-size:74%;border:1px solid rgba(255,255,255,.34);box-shadow:0 26px 54px rgba(10,132,255,.24),inset 0 1px 0 rgba(255,255,255,.38);animation:splashLogo 1.42s cubic-bezier(.16,.84,.22,1) both}.splash-wordmark{font-size:1.5rem;font-weight:900;letter-spacing:-.06em;opacity:0;animation:splashText .72s var(--ease-smooth) .46s both}.splash-subtitle{color:var(--muted);font-size:.86rem;font-weight:700;opacity:0;animation:splashText .72s var(--ease-smooth) .58s both}@keyframes splashCardIn{0%{opacity:0;transform:translate3d(0,18px,0) scale(.92);filter:blur(16px)}55%{opacity:1;transform:translate3d(0,-2px,0) scale(1.015);filter:none}100%{opacity:1;transform:none;filter:none}}@keyframes splashLogo{0%{transform:scale(.82);border-radius:34px}55%{transform:scale(1.04);border-radius:26px}100%{transform:scale(1);border-radius:28px}}@keyframes splashText{from{opacity:0;transform:translateY(8px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}@keyframes splashAura{from{transform:scale(.8);opacity:.35}to{transform:scale(1.08);opacity:1}}
     .smart-profile-card{padding:16px;border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.045));border:1px solid var(--line);box-shadow:var(--shadow-soft)}.smart-profile-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}.smart-profile-head strong{display:block;margin-top:6px;font-size:1.04rem;letter-spacing:-.035em}.smart-profile-head p{margin:6px 0 0;color:var(--muted);font-size:.86rem;line-height:1.42}.smart-profile-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.smart-profile{position:relative;text-align:left;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.035));color:var(--text);border-radius:22px;padding:13px;min-height:92px;overflow:hidden;transition:transform .28s var(--ease-spring),border-color .28s var(--ease-smooth),background .28s var(--ease-smooth),box-shadow .28s var(--ease-smooth)}.smart-profile:active{transform:scale(.98)}.smart-profile:hover{border-color:rgba(10,132,255,.20);box-shadow:0 14px 26px rgba(10,132,255,.08)}.smart-profile .smart-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}.smart-profile-icon{width:34px;height:34px;border-radius:13px;display:grid;place-items:center;background:rgba(10,132,255,.13);border:1px solid rgba(10,132,255,.18);color:var(--blue)}.smart-profile strong{font-size:.92rem;letter-spacing:-.03em;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.smart-profile span{display:block;color:var(--muted);font-size:.74rem;line-height:1.35}.smart-profile small{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;color:var(--text);font-size:.72rem;font-weight:800}.smart-empty{grid-column:1/-1;padding:14px;border-radius:20px;border:1px dashed var(--line);color:var(--muted);font-size:.84rem;line-height:1.42;background:rgba(255,255,255,.045)}
     .history-premium-panel{padding:18px;border-radius:30px;background:linear-gradient(180deg,rgba(10,132,255,.16),rgba(255,255,255,.055));border:1px solid rgba(10,132,255,.18);box-shadow:0 22px 48px rgba(10,132,255,.10)}.history-premium-main{display:flex;justify-content:space-between;gap:16px;align-items:center}.history-premium-main strong{display:block;margin-top:10px;font-size:1.18rem;letter-spacing:-.045em}.history-premium-main p{margin:7px 0 0;color:var(--muted);line-height:1.5}.history-rings{display:flex;gap:10px;flex:0 0 auto}.history-ring{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;text-align:center;padding:12px;background:radial-gradient(circle at center,var(--glass-strong),var(--glass));border:1px solid rgba(10,132,255,.20);box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}.history-ring span{font-size:1rem;font-weight:900;letter-spacing:-.04em}.history-ring small{font-size:.66rem;color:var(--muted);font-weight:800;line-height:1.1}.gf-history-card{position:relative;overflow:hidden}.gf-history-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--blue),var(--blue-2));opacity:.9}.gf-history-top{position:relative;z-index:1;display:flex;align-items:center;gap:12px;margin-bottom:14px}.gf-history-icon{width:42px;height:42px;border-radius:16px;display:grid;place-items:center;background:rgba(10,132,255,.12);border:1px solid rgba(10,132,255,.18);color:var(--blue);flex:0 0 auto}.gf-history-route{min-width:0;flex:1}.gf-history-route strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.03em}.gf-history-route span{display:block;margin-top:4px;color:var(--muted);font-size:.78rem}.gf-history-cost{padding:8px 10px;border-radius:999px;background:rgba(10,132,255,.12);border:1px solid rgba(10,132,255,.16);color:var(--blue);font-weight:900;letter-spacing:-.03em}.gf-route-mini{height:82px;border-radius:22px;border:1px solid var(--line);background:radial-gradient(circle at 20% 30%,rgba(10,132,255,.20),transparent 28%),radial-gradient(circle at 76% 70%,rgba(101,181,255,.18),transparent 30%),linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));position:relative;overflow:hidden;margin:12px 0}.gf-route-mini svg{position:absolute;inset:0;width:100%;height:100%}.gf-route-mini path{stroke:var(--blue);stroke-width:4;fill:none;stroke-linecap:round;stroke-dasharray:8 9;opacity:.78}.gf-route-mini .pin{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 6px rgba(10,132,255,.12)}.gf-route-mini .pin.a{left:18%;top:54%}.gf-route-mini .pin.b{right:18%;top:28%;background:var(--blue-2)}.gf-history-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.gf-history-kpi{padding:10px;border-radius:16px;background:rgba(255,255,255,.075);border:1px solid var(--line)}.gf-history-kpi .small{display:block;color:var(--muted);font-size:.68rem;margin-bottom:5px}.gf-history-kpi .main{font-size:.86rem;font-weight:900;letter-spacing:-.03em}@media(max-width:520px){.history-premium-main{flex-direction:column;align-items:flex-start}.history-rings{width:100%;justify-content:space-between}.history-ring{width:calc(50vw - 34px);height:calc(50vw - 34px);max-width:112px;max-height:112px}.gf-history-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.smart-profile-head{flex-direction:column}.smart-profile-head .btn{width:100%}.smart-profile-strip{grid-template-columns:1fr 1fr}.smart-profile{padding:12px;min-height:98px}}
 
+    /* GasoFriends v2.1.1 · perfiles eliminables y sección utilidad */
+    .smart-profile{position:relative;text-align:left}
+    .smart-profile-delete{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,59,48,.22);background:rgba(255,59,48,.12);color:#ff3b30;display:grid;place-items:center;font-weight:900;line-height:1;z-index:4;box-shadow:0 10px 22px rgba(255,59,48,.08);transition:transform .22s var(--ease-spring),background .22s var(--ease-smooth),opacity .2s var(--ease-smooth)}
+    .smart-profile-delete:active{transform:scale(.88)}
+    .smart-profile[data-saved-profile="false"] .smart-profile-delete{display:none}
+    body.dark .smart-profile-delete{background:rgba(255,69,58,.16);border-color:rgba(255,69,58,.26);color:#ff8a80}
+    .utility-grid{display:grid;gap:12px}.utility-score-card{padding:18px;border-radius:30px;background:linear-gradient(180deg,rgba(10,132,255,.14),rgba(255,255,255,.055));border:1px solid rgba(10,132,255,.18);box-shadow:var(--shadow-soft);position:relative;overflow:hidden}.utility-score-card::after{content:"";position:absolute;right:-46px;top:-46px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(10,132,255,.26),transparent 68%);pointer-events:none}.utility-score{font-size:2.35rem;font-weight:950;letter-spacing:-.08em;margin-top:10px}.utility-meter{height:9px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid var(--line);overflow:hidden;margin-top:14px}.utility-meter span{display:block;height:100%;width:74%;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--blue-2));box-shadow:0 0 18px rgba(10,132,255,.24)}.utility-checklist{display:grid;gap:10px}.utility-check{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:22px;background:rgba(255,255,255,.07);border:1px solid var(--line)}.utility-check-icon{width:34px;height:34px;border-radius:13px;display:grid;place-items:center;background:rgba(10,132,255,.13);color:var(--blue);border:1px solid rgba(10,132,255,.18);flex:0 0 auto}.utility-check strong{display:block;letter-spacing:-.025em}.utility-check p{margin:4px 0 0;color:var(--muted);line-height:1.45;font-size:.9rem}.utility-mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.utility-mini{padding:14px;border-radius:22px;background:rgba(255,255,255,.07);border:1px solid var(--line)}.utility-mini .small{display:block;color:var(--muted);font-size:.74rem;margin-bottom:6px}.utility-mini .main{font-weight:900;letter-spacing:-.03em}
   </style>
 </head>
 <body class="app-v209">
@@ -1328,6 +1335,11 @@
         <button class="menu-item" data-page="tips">
           <span class="menu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a7 7 0 0 0-4 12.7c.7.5 1.1 1.2 1.2 2.1h5.6c.1-.9.5-1.6 1.2-2.1A7 7 0 0 0 12 3z"></path><path d="M9.5 20h5"></path></svg></span>
           <span class="menu-copy"><span class="menu-title">Consejos</span><span class="menu-meta">Ahorro y paradas</span></span>
+          <span class="menu-arrow">›</span>
+        </button>
+        <button class="menu-item" data-page="utility">
+          <span class="menu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17.5 12 4l8 13.5"></path><path d="M8.5 14h7"></path><path d="M10.5 10.5h3"></path><path d="M12 17.5v2.5"></path></svg></span>
+          <span class="menu-copy"><span class="menu-title">Utilidad</span><span class="menu-meta">Checklist y preparación</span></span>
           <span class="menu-arrow">›</span>
         </button>
         <button class="menu-item" data-page="help">
@@ -1731,9 +1743,9 @@
         <div class="ios-hero-card glass-soft reveal-on-scroll bare-hero">
           <div class="hero-row release-hero-row">
             <div class="hero-copy">
-              <span class="hero-kicker">GasoFriends 2.0.9 (a)</span>
-              <h2>Información de versión · v2.0.9 (a)</h2>
-              <p>La 2.1 parte de la estabilidad de la 2.0.9(a) y añade apertura estilo iPhone, perfiles inteligentes e historial premium. Se elimina el experimento de Live Activities para mantener la app limpia y estable.</p>
+              <span class="hero-kicker">GasoFriends 2.1.1</span>
+              <h2>Información de versión · v2.1.1</h2>
+              <p>La 2.1.1 pule la rama 2.1: permite eliminar perfiles guardados, recupera las notas de la versión 2.1 y añade una nueva sección de utilidad para preparar mejor cada viaje.</p>
             </div>
             <div class="hero-status-badge release-status-badge"><span class="hero-status-dot"></span><span>Al día</span></div>
           </div>
@@ -1750,32 +1762,59 @@
               <div class="release-meta">
                 <div>
                   <div class="release-date">25 de abril de 2026</div>
-                  <div class="release-version">v2.0.9 (a)</div>
+                  <div class="release-version">v2.1.1</div>
                 </div>
-                <span class="release-badge current">Cierre estable</span>
+                <span class="release-badge current">Actual</span>
               </div>
               <div class="release-columns">
                 <div class="release-group">
                   <h4>Mejoras</h4>
                   <ul>
-                    <li>Reforzado el flujo final del home para que, con todos los campos completos, el botón de calcular quede abajo y usable sin volver arriba.</li>
-                    <li>Reconstruido el onboarding minimalista de tres pantallas con estética Apple Pro, gráficos ligeros y menos texto.</li>
-                    <li>Ajustada la estructura del home para mantener lectura clara entre campos, reparto previsto y acción principal.</li>
-                    <li>Mejoradas las safe areas inferiores y el espacio de cierre en PWA instalada para iPhone.</li>
+                    <li>Ahora los perfiles inteligentes guardados se pueden eliminar desde su propia tarjeta con una X roja.</li>
+                    <li>Añadida una nueva sección “Utilidad” accesible desde el menú, con checklist de preparación, lectura rápida y resumen útil del viaje.</li>
+                    <li>Actualizado el apartado Actualizaciones para incluir correctamente la versión 2.1 y dejar la 2.1.1 como versión actual.</li>
+                    <li>Refinada la presentación visual de perfiles y utilidad con diseño Apple-like, Liquid Glass y tarjetas minimalistas.</li>
                   </ul>
                 </div>
                 <div class="release-group group-fixes">
                   <h4>Corrección de errores</h4>
                   <ul>
-                    <li>Corregido el bug arrastrado donde la página parecía terminar al aparecer “Reparto previsto” y no dejaba seguir bajando.</li>
-                    <li>Eliminados límites de altura, overflow y recortes internos del panel de preparación del trayecto.</li>
-                    <li>Reparado el disparo del onboarding con claves nuevas de versión para evitar estados antiguos guardados en Safari.</li>
-                    <li>Actualizado el service worker para forzar caché nueva y evitar que iPhone mantenga builds anteriores.</li>
+                    <li>Corregida la ausencia de la versión 2.1 dentro del historial de actualizaciones.</li>
+                    <li>Ajustada la gestión de almacenamiento local al eliminar perfiles para evitar restos visuales o perfiles duplicados.</li>
+                    <li>Actualizado el service worker a una nueva caché para evitar que Safari mantenga la versión 2.1 anterior.</li>
                   </ul>
                 </div>
               </div>
             </article>
 
+            <article class="release-entry release-milestone">
+              <div class="release-meta">
+                <div>
+                  <div class="release-date">25 de abril de 2026</div>
+                  <div class="release-version">v2.1</div>
+                </div>
+                <span class="release-badge milestone">Rama 2.1</span>
+              </div>
+              <div class="release-columns">
+                <div class="release-group">
+                  <h4>Mejoras</h4>
+                  <ul>
+                    <li>Nueva animación de apertura estilo iPhone con logo de GasoFriends y transición fluida hacia la Home.</li>
+                    <li>Introducido el sistema de perfiles inteligentes para guardar configuraciones habituales de viaje.</li>
+                    <li>Nuevo acceso rápido para repetir trayectos frecuentes.</li>
+                    <li>Nuevo historial premium con tarjetas visuales, estadísticas y lectura más limpia de trayectos.</li>
+                  </ul>
+                </div>
+                <div class="release-group group-fixes">
+                  <h4>Corrección de errores</h4>
+                  <ul>
+                    <li>Ajustado el comportamiento de apertura en modo PWA instalado en iPhone.</li>
+                    <li>Revisado el almacenamiento local de perfiles inteligentes.</li>
+                    <li>Ajustadas safe areas y márgenes en las nuevas secciones añadidas.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
             <article class="release-entry release-patch">
               <div class="release-meta">
                 <div>
@@ -2450,6 +2489,57 @@
 
 
 
+
+    <section class="page" id="page-utility">
+      <div class="page-stack">
+        <div class="ios-hero-card glass-soft reveal-on-scroll bare-hero">
+          <div class="hero-row">
+            <div class="hero-copy">
+              <span class="hero-kicker">Utilidad</span>
+              <h2>Prepara el viaje sin pensar de más</h2>
+              <p>Una vista rápida para revisar lo importante antes de salir: reparto, combustible, personas, ruta y margen del trayecto.</p>
+              <div class="mini-line"><span>Checklist</span><span class="divider"></span><span>Antes de salir</span><span class="divider"></span><span>Simple y privado</span></div>
+            </div>
+            <div class="hero-status-badge"><span class="hero-status-dot"></span><span>Listo</span></div>
+          </div>
+        </div>
+
+        <div class="utility-grid">
+          <div class="utility-score-card glass-soft reveal-on-scroll">
+            <span class="section-chip">Lectura rápida</span>
+            <div class="utility-score">74%</div>
+            <p>Preparación estimada del trayecto según los datos completados. Cuantos más campos estén listos, más limpio será el reparto.</p>
+            <div class="utility-meter"><span></span></div>
+          </div>
+
+          <div class="content-card glass-soft reveal-on-scroll">
+            <div class="section-head">
+              <span class="section-chip">Checklist inteligente</span>
+              <strong>Antes de calcular</strong>
+            </div>
+            <div class="utility-checklist">
+              <div class="utility-check"><span class="utility-check-icon">✓</span><div><strong>Origen y destino</strong><p>Confirma que la ruta tiene sentido antes de lanzar el cálculo final.</p></div></div>
+              <div class="utility-check"><span class="utility-check-icon">✓</span><div><strong>Personas del viaje</strong><p>Revisa pasajeros para que el coste por cabeza salga limpio.</p></div></div>
+              <div class="utility-check"><span class="utility-check-icon">✓</span><div><strong>Consumo y precio</strong><p>Usa un perfil guardado o ajusta litros y combustible si el coche cambia.</p></div></div>
+              <div class="utility-check"><span class="utility-check-icon">✓</span><div><strong>Margen de realidad</strong><p>La app contempla paradas y lectura estable para no inflar el viaje visualmente.</p></div></div>
+            </div>
+          </div>
+
+          <div class="content-card glass-soft reveal-on-scroll">
+            <div class="section-head">
+              <span class="section-chip">Resumen útil</span>
+              <strong>Datos que suelen importar</strong>
+            </div>
+            <div class="utility-mini-grid">
+              <div class="utility-mini"><span class="small">Recomendación</span><div class="main">Guardar perfil</div></div>
+              <div class="utility-mini"><span class="small">Mejor uso</span><div class="main">Viajes repetidos</div></div>
+              <div class="utility-mini"><span class="small">Privacidad</span><div class="main">Solo iPhone</div></div>
+              <div class="utility-mini"><span class="small">Modo ideal</span><div class="main">PWA instalada</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
         <section class="page" id="page-settings">
       <div class="page-stack">
         <div class="ios-hero-card glass-soft reveal-on-scroll bare-hero">
@@ -3059,7 +3149,22 @@
     function profileFromHistoryItem(it){ const people = Math.max(1, Math.round((+it.totalCost || 0) / Math.max(.01, +it.perPerson || 0))) || 1; return {id:'last_trip', name:'Último viaje', origin:it.origin||'', destination:it.destination||'', consumption:it.consumption||els.consumption?.value||'6.5', fuelPrice:it.fuelPrice||els.fuelPrice?.value||'1.890', passengers:String(it.passengers||people||1), ts:it.ts||Date.now(), virtual:true}; }
     function applySmartProfile(profile){ if(!profile) return; if(els.origin) els.origin.value = profile.origin || els.origin.value || ''; if(els.destination) els.destination.value = profile.destination || els.destination.value || ''; if(els.consumption) els.consumption.value = profile.consumption || els.consumption.value || ''; if(els.fuelPrice) els.fuelPrice.value = profile.fuelPrice || els.fuelPrice.value || ''; if(els.passengers) els.passengers.value = profile.passengers || els.passengers.value || '1'; state.usingCurrentOrigin=false; state.routeDirty=!!state.routeCoords.length; schedulePreviewEstimate(); saveLocal(); updateStats(); syncButtons(); toastMessage('Perfil aplicado','Datos listos para revisar y calcular.'); }
     function saveSmartProfile(){ const payload=currentProfilePayload(); const hasUsefulData=payload.origin||payload.destination||payload.consumption||payload.fuelPrice||payload.passengers; if(!hasUsefulData){toastMessage('Completa algún dato','Rellena el viaje antes de guardarlo como perfil.'); return;} const arr=smartProfiles().filter(p=>(p.name||'').toLowerCase()!==(payload.name||'').toLowerCase()); arr.unshift(payload); setSmartProfiles(arr); renderSmartProfiles(); toastMessage('Perfil guardado','Aparecerá aquí para repetirlo rápido.'); }
-    function renderSmartProfiles(){ if(!els.smartProfileStrip) return; const saved=smartProfiles(); const recent=historyItems()[0]?[profileFromHistoryItem(historyItems()[0])]:[]; const quick=[{id:'daily',name:'Diario',origin:'',destination:'',consumption:'6.0',fuelPrice:'1.890',passengers:'2',virtual:true},{id:'group',name:'Grupo',origin:'',destination:'',consumption:'6.7',fuelPrice:'1.890',passengers:'4',virtual:true}]; const items=[...recent,...saved,...quick].slice(0,6); if(!items.length){els.smartProfileStrip.innerHTML='<div class="smart-empty">Guarda un viaje y GasoFriends lo convertirá en un acceso rápido para repetirlo.</div>'; return;} els.smartProfileStrip.innerHTML=items.map((p,idx)=>`<button class="smart-profile" type="button" data-smart-profile="${idx}"><div class="smart-top"><span class="smart-profile-icon">${iconMarkup(p.id==='last_trip'?'clock':'route')}</span><div><strong>${p.name||'Perfil'}</strong><span>${p.destination?shortPlace(p.destination):'Perfil rápido'}</span></div></div><small><span>${String(p.consumption||'—').replace('.',',')} L</span><span>${String(p.fuelPrice||'—').replace('.',',')} €</span><span>${p.passengers||1} pers.</span></small></button>`).join(''); els.smartProfileStrip.querySelectorAll('[data-smart-profile]').forEach(btn=>{btn.addEventListener('click',()=>{const profile=items[Number(btn.dataset.smartProfile)]; feedback(btn); applySmartProfile(profile);});}); }
+    function deleteSmartProfile(id){ const arr=smartProfiles().filter(p=>String(p.id)!==String(id)); setSmartProfiles(arr); renderSmartProfiles(); toastMessage('Perfil eliminado','Se ha quitado de tus accesos rápidos.'); }
+    function renderSmartProfiles(){
+      if(!els.smartProfileStrip) return;
+      const saved=smartProfiles();
+      const recent=historyItems()[0]?[profileFromHistoryItem(historyItems()[0])]:[];
+      const quick=[{id:'daily',name:'Diario',origin:'',destination:'',consumption:'6.0',fuelPrice:'1.890',passengers:'2',virtual:true},{id:'group',name:'Grupo',origin:'',destination:'',consumption:'6.7',fuelPrice:'1.890',passengers:'4',virtual:true}];
+      const items=[...recent,...saved,...quick].slice(0,6);
+      if(!items.length){els.smartProfileStrip.innerHTML='<div class="smart-empty">Guarda un viaje y GasoFriends lo convertirá en un acceso rápido para repetirlo.</div>'; return;}
+      els.smartProfileStrip.innerHTML=items.map((p,idx)=>{
+        const savedProfile=!p.virtual;
+        const deleteButton=savedProfile?`<span class="smart-profile-delete" role="button" aria-label="Eliminar perfil" data-delete-profile="${p.id}">×</span>`:'';
+        return `<button class="smart-profile" type="button" data-smart-profile="${idx}" data-saved-profile="${savedProfile}">${deleteButton}<div class="smart-top"><span class="smart-profile-icon">${iconMarkup(p.id==='last_trip'?'clock':'route')}</span><div><strong>${p.name||'Perfil'}</strong><span>${p.destination?shortPlace(p.destination):'Perfil rápido'}</span></div></div><small><span>${String(p.consumption||'—').replace('.',',')} L</span><span>${String(p.fuelPrice||'—').replace('.',',')} €</span><span>${p.passengers||1} pers.</span></small></button>`;
+      }).join('');
+      els.smartProfileStrip.querySelectorAll('[data-smart-profile]').forEach(btn=>{btn.addEventListener('click',(ev)=>{ if(ev.target.closest('[data-delete-profile]')) return; const profile=items[Number(btn.dataset.smartProfile)]; feedback(btn); applySmartProfile(profile);});});
+      els.smartProfileStrip.querySelectorAll('[data-delete-profile]').forEach(del=>{del.addEventListener('click',(ev)=>{ev.preventDefault(); ev.stopPropagation(); deleteSmartProfile(del.dataset.deleteProfile);});});
+    }
 
     function invalidateMapSoon(delay=0){
       if(!state.map) return;

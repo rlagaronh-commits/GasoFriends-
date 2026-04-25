@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gasofriends-v2.1-smart-profiles-history-splash';
+const CACHE_NAME = 'gasofriends-v2.1.1-utility-profiles-release';
 const APP_SHELL = ['./', './index.html', './offline.html', './manifest.webmanifest', './apple-touch-icon.png'];
 
 self.addEventListener('install', event => {
