@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gasofriends-v2.1-live-activities-launch';
+const CACHE_NAME = 'gasofriends-v2.0.9a-space-onboarding-hotfix';
 const APP_SHELL = ['./', './index.html', './offline.html', './manifest.webmanifest', './apple-touch-icon.png'];
 
 self.addEventListener('install', event => {

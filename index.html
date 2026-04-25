@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>GasoFriends v2.1</title>
+  <title>GasoFriends v2.0.9 (a)</title>
   <meta name="theme-color" content="#0f6fff" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -1243,13 +1243,9 @@
     body.app-v209 .onboarding:not(.show){opacity:0 !important;visibility:hidden !important;pointer-events:none !important;}
     body.app-v209 .onboarding.show{opacity:1 !important;visibility:visible !important;pointer-events:auto !important;}
 
-
-    .launch-screen{position:fixed;inset:0;z-index:20000;display:grid;place-items:center;background:linear-gradient(180deg,rgba(246,250,255,.98),rgba(232,242,252,.94));backdrop-filter:blur(30px) saturate(160%);-webkit-backdrop-filter:blur(30px) saturate(160%);transition:opacity .52s var(--ease-smooth),visibility .52s var(--ease-smooth),transform .72s cubic-bezier(.16,.86,.18,1)}body.dark .launch-screen{background:linear-gradient(180deg,rgba(5,12,22,.98),rgba(9,17,29,.94))}.launch-card{display:grid;place-items:center;gap:18px;transform:translateY(10px) scale(.96);opacity:0;animation:launchCardIn .82s cubic-bezier(.16,.86,.18,1) .08s forwards}.launch-logo{width:92px;height:92px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(145deg,#8fd0ff,#0a84ff);box-shadow:0 26px 70px rgba(10,132,255,.28),inset 0 1px 0 rgba(255,255,255,.50);position:relative;overflow:hidden}.launch-logo:after{content:'';width:44px;height:56px;border-radius:26px;background:rgba(255,255,255,.92);clip-path:polygon(50% 0,70% 28%,86% 53%,82% 78%,64% 97%,38% 97%,18% 78%,14% 53%,30% 28%);z-index:1}.launch-name{font-size:1.72rem;font-weight:900;letter-spacing:-.065em;color:var(--text);opacity:0;transform:translateY(8px);animation:launchNameIn .68s cubic-bezier(.16,.86,.18,1) .34s forwards}.launch-sub{font-size:.86rem;font-weight:800;color:var(--muted);opacity:0;transform:translateY(6px);animation:launchNameIn .68s cubic-bezier(.16,.86,.18,1) .52s forwards}.launch-screen.done{opacity:0;visibility:hidden;pointer-events:none;transform:scale(1.015)}body.app-loading .shell,body.app-loading .topbar{filter:blur(10px);opacity:.35;transform:translateY(8px)}@keyframes launchCardIn{to{opacity:1;transform:none}}@keyframes launchNameIn{to{opacity:1;transform:none}}
-    .live-activity{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 74px);width:min(calc(100vw - 24px),832px);z-index:89;display:grid;grid-template-columns:1.2fr .8fr;gap:10px;align-items:center;padding:10px 12px;border-radius:28px;background:linear-gradient(180deg,rgba(5,12,22,.82),rgba(5,12,22,.68));border:1px solid rgba(255,255,255,.10);box-shadow:0 22px 56px rgba(4,10,18,.24),inset 0 1px 0 rgba(255,255,255,.10);backdrop-filter:blur(28px) saturate(150%);-webkit-backdrop-filter:blur(28px) saturate(150%);color:#fff;opacity:0;pointer-events:none;transform:translate3d(-50%,-10px,0) scale(.965);filter:blur(10px);transition:opacity .34s var(--ease-smooth),transform .48s cubic-bezier(.16,.86,.18,1),filter .34s var(--ease-smooth)}body.trip-mode .live-activity{opacity:1;pointer-events:auto;transform:translate3d(-50%,0,0) scale(1);filter:none}.live-activity-main{display:flex;align-items:center;gap:12px;min-width:0}.live-pulse{width:44px;height:44px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--blue-2));box-shadow:0 12px 26px rgba(10,132,255,.28);position:relative;flex:0 0 auto}.live-pulse:before{content:'';width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.58);animation:livePulse 1.5s infinite}body.trip-paused .live-pulse{background:linear-gradient(135deg,#ffb340,#ff9500)}.live-title{display:block;font-weight:900;letter-spacing:-.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.live-subtitle{display:block;margin-top:2px;color:rgba(255,255,255,.68);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.live-activity-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.live-mini{padding:8px 9px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);min-width:0}.live-mini span{display:block;color:rgba(255,255,255,.58);font-size:.66rem;font-weight:700;margin-bottom:3px}.live-mini strong{display:block;color:#fff;font-size:.88rem;letter-spacing:-.035em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@keyframes livePulse{70%{box-shadow:0 0 0 13px rgba(255,255,255,0)}}@media(max-width:640px){.live-activity{top:calc(env(safe-area-inset-top,0px) + 68px);grid-template-columns:1fr;padding:10px;border-radius:26px}.live-mini{padding:7px 8px}.live-mini strong{font-size:.82rem}.live-subtitle{font-size:.74rem}}
   </style>
 </head>
-<body class="app-v21 app-loading">
-<div class="launch-screen" id="launchScreen" aria-hidden="true"><div class="launch-card"><div class="launch-logo"></div><div style="text-align:center"><div class="launch-name">GasoFriends</div><div class="launch-sub">viajes compartidos, cuentas claras</div></div></div></div><div class="live-activity" id="liveActivity" aria-live="polite"><div class="live-activity-main"><div class="live-pulse"></div><div style="min-width:0"><span class="live-title" id="liveActivityTitle">Trayecto activo</span><span class="live-subtitle" id="liveActivitySubtitle">Seguimiento en directo preparado</span></div></div><div class="live-activity-grid"><div class="live-mini"><span>Coste</span><strong id="liveCost">0,00 €</strong></div><div class="live-mini"><span>Persona</span><strong id="livePerson">0,00 €</strong></div><div class="live-mini"><span>Queda</span><strong id="liveRemain">—</strong></div></div></div>
+<body class="app-v209">
   <div class="orb a"></div>
   <div class="orb b"></div>
   <div class="backdrop" id="backdrop"></div>
@@ -1353,7 +1349,7 @@
       <div class="brand" id="goHome">
         <div class="logo" aria-hidden="true"></div>
         <div class="brand-text">
-          <h1>GasoFriends <span class="brand-version-chip">2.1</span></h1>
+          <h1>GasoFriends <span class="brand-version-chip">2.0.9a</span></h1>
           <p id="brandSubtitle"></p>
         </div>
       </div>
@@ -2714,9 +2710,9 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script>
   (() => {
-    const VERSION = '2.1';
-    const ONBOARDING_KEY = 'gasofriends_v21_onboarding_live_activity_seen';
-    const ONBOARDING_RESET_KEY = 'gasofriends_v21_onboarding_reset';
+    const VERSION = '2.0.9 (a)';
+    const ONBOARDING_KEY = 'gasofriends_v209a_onboarding_seen';
+    const ONBOARDING_RESET_KEY = 'gasofriends_v209a_onboarding_reset';
     const SHOW_ONBOARDING_ON_LAUNCH = true;
     const STORAGE_KEY = 'gasofriends_v142_state';
     const HISTORY_KEY = 'gasofriends_v142_history';
@@ -3486,7 +3482,6 @@
       const flowBadge = document.querySelector('.hero-status-badge');
       flowBadge?.classList.toggle('is-paused', !!state.tracking && !!state.paused);
       updateV2Panel();
-      updateLiveActivity();
     }
 
     function syncButtons(){
@@ -3525,7 +3520,6 @@
       }else if(tripFinished){
         els.statusPill.classList.add('state-finished');
       }
-      updateLiveActivity();
     }
 
     function setCompactMapInteractions(){
@@ -4181,21 +4175,7 @@
 
     }
 
-
-    function updateLiveActivity(){
-      const root=document.getElementById('liveActivity'); if(!root) return;
-      const rem=state.estimatedKm?Math.max(state.estimatedKm-state.distanceKm,0):0;
-      const title=document.getElementById('liveActivityTitle'), sub=document.getElementById('liveActivitySubtitle');
-      if(title) title.textContent=state.paused?'Trayecto pausado':(state.tracking?'Trayecto activo':'Ruta lista');
-      if(sub) sub.textContent=state.tracking?(state.paused?'Reanuda cuando quieras sin perder el contexto':((els.destination?.value||'Destino')+' · GPS en directo')):'Calcula e inicia el seguimiento cuando quieras';
-      let planned={total:0,perPerson:0}; try{planned=plannedSplitPreview();}catch(_){}
-      const c=document.getElementById('liveCost'),p=document.getElementById('livePerson'),r=document.getElementById('liveRemain');
-      if(c) c.textContent=eur(state.totalCost||planned.total||0); if(p) p.textContent=eur(state.perPerson||planned.perPerson||0); if(r) r.textContent=state.estimatedKm?km(rem):'—';
-    }
-    function runLaunchScreen(){const launch=document.getElementById('launchScreen');const finish=()=>{document.body.classList.remove('app-loading');if(launch){launch.classList.add('done');setTimeout(()=>launch.remove(),720);}};setTimeout(finish,window.matchMedia('(prefers-reduced-motion: reduce)').matches?350:1550);}
-
     function init(){
-      runLaunchScreen();
       loadLocal();
       state.tracking = false; state.paused = false;
       initMap();
